@@ -1,3 +1,17 @@
-from django.shortcuts import render
+from django.views.generic import CreateView, UpdateView
 
-# Create your views here.
+from .models import Place
+
+
+class AddPlaceView(CreateView):
+    model = Place
+    template_name = "live_demo/place_form.html"
+    success_url = "/index/"
+    fields = "__all__"
+
+
+class ChangePlaceView(UpdateView):
+    model = Place
+    template_name = "live_demo/place_form.html"
+    success_url = "/index/"
+    fields = "__all__"
