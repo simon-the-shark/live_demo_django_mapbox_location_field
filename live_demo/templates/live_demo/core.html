@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DJANGO MAPBOX LOCATION FIELD DEMO</title>
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% load mapbox_location_field_tags %}
+    {% location_field_includes %}
+    {% include_jquery %}
+
+</head>
+<body>
+<div class="container">
+    <h1 align="center" class="display-2 bg-info text-light">LIVE DEMO</h1>
+    <h2 align="center" class="display-4">django-mapbox-location-field</h2>
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>
