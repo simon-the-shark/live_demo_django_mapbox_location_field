@@ -1,5 +1,6 @@
 {% extends "live_demo/core.html" %}
 {% block content %}
+    <a class="btn btn-success text-ligt btn-lg btn-block" href="{% url 'add' %}">ADD NEW PLACE</a>
     <h2 class="display-5">Places:</h2>
     {% for place in object_list %}
         <div class="row" style="margin:5px;">
