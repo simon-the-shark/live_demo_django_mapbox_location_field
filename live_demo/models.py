@@ -1,8 +1,9 @@
 from django.db import models
 from mapbox_location_field.models import LocationField
+from datetime import datetime
 
 
 class Place(models.Model):
-    name = models.CharField(max_length=100)
     location = LocationField(
         map_attrs={"style": "mapbox://styles/mightysharky/cjwgnjzr004bu1dnpw8kzxa72"})
+    created_at = models.DateTimeField(default=datetime.now())

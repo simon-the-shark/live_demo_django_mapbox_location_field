@@ -4,7 +4,6 @@
     <h2 class="display-5">Places:</h2>
     {% for place in object_list %}
         <div class="row" style="margin:5px;">
-            <div class="col">{{ place.name}}</div>
             <div class="col"> {{ place.location}}</div>
             <div class="col"><a href="{% url "change" place.id %}" class="btn btn-secondary">CHANGE</a></div>
         </div>

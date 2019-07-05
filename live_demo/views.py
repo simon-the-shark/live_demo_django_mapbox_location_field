@@ -7,15 +7,17 @@ class AddPlaceView(CreateView):
     model = Place
     template_name = "live_demo/place_form.html"
     success_url = "/index/"
-    fields = "__all__"
+    fields = ("location",)
 
 
 class ChangePlaceView(UpdateView):
     model = Place
     template_name = "live_demo/place_form.html"
     success_url = "/index/"
-    fields = "__all__"
+    fields = ("location",)
+
 
 class PlacesView(ListView):
     model = Place
     template_name = "live_demo/index.html"
+    ordering = ["-created_at", ]
