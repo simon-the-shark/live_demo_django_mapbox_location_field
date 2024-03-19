@@ -11,8 +11,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import sys
+
 from decouple import config
-import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,7 +27,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", cast=bool, default=False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
 
 # Application definition
 
@@ -40,7 +41,6 @@ INSTALLED_APPS = [
     'live_demo.apps.LiveDemoConfig',
     "mapbox_location_field",
     "bootstrap4",
-
 ]
 
 MIDDLEWARE = [
@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'live_demo_django_mapbox_location_field.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': config('DB_ENGINE', default='django.db.backends.sqlite3'),
+        'NAME': config('DB_NAME', default=os.path.join(BASE_DIR, 'db.sqlite3')),
+        'USER': config('DB_USER', default='user'),
+        'PASSWORD': config('DB_PASSWORD', default='password'),
+        'HOST': config('DB_HOST', default='localhost'),
+        'PORT': config('DB_PORT', default='5432'),
     }
 }
 
@@ -121,5 +125,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MAPBOX_KEY = config("MAPBOX_KEY")
-
-django_heroku.settings(locals())
