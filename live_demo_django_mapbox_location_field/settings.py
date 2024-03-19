@@ -125,3 +125,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MAPBOX_KEY = config("MAPBOX_KEY")
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
