@@ -27,7 +27,8 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", cast=bool, default=False)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost').split(' ')
+ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOSTS', default='localhost').split(' ')
+CSRF_TRUSTED_ORIGINS = config("CSRF_TRUSTED_ORIGINS", default="localhost").split(" ")
 
 # Application definition
 
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'live_demo.apps.LiveDemoConfig',
     "mapbox_location_field",
     "bootstrap4",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
