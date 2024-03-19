@@ -1,1 +1,0 @@
-web: gunicorn live_demo_django_mapbox_location_field.wsgi
