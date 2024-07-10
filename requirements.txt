@@ -1,5 +1,5 @@
 dj-database-url==2.1.0
-Django==5.0.3
+Django==5.0.7
 django-bootstrap4==24.1
 django-decouple==2.1
 django-mapbox-location-field==2.1.0
